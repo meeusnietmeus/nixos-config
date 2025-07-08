@@ -79,7 +79,7 @@
       };
 
 			cursor = {
-		    theme = "Bibata-Modern-Classic";
+		    theme = "Posy_Cursor_Black";
     		size = 32;
 			};
 
