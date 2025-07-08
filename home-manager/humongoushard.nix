@@ -61,23 +61,28 @@
         };
       };
 
-      gestures.hot-corners.off = true;
+      gestures.hot-corners.enable = false;
 
       layout = {
         gaps = 14;
         center-focused-column = "never";
 
-        default-column-width { proportion = 0.5; };
-        preset-column-widths = {
-          proportion = 0.33333;
-          proportion = 0.5;
-          proportion = 0.66667;
-        };
+        default-column-width.proportion = 0.5;
+
+        preset-column-widths = [
+          { proportion = 0.33333; }
+          { proportion = 0.5; }
+          { proportion = 0.66667; }
+        ];
 
         focus-ring = {
           width = 3;
-          active-color = "#7fc8ff";
-          inactive-color = "#505050";
+            active = {
+            color = "#7fc8ff";
+          };
+            inactive = {
+            color = "#505050";
+          };
         };
       };
 
@@ -99,13 +104,18 @@
         {
           # Open the Firefox picture-in-picture player as floating by default.
           matches = [
-            { app-id = "firefox$" }
-            { title = "^Picture-in-Picture$" }
+            { app-id = "firefox$"; }
+            { title = "^Picture-in-Picture$"; }
           ];
           open-floating = true;
         }
         {
-          geometry-corner-radius = 4;
+          geometry-corner-radius = {
+            bottom-right = 4.0;
+            bottom-left = 4.0;
+            top-left = 4.0;
+            top-right = 4.0;
+          };
           clip-to-geometry = true;
         }
       ];
@@ -113,7 +123,7 @@
       binds = with config.lib.niri.actions; {
         # basics
         "Mod+T".action = spawn "foot";
-        "Mod+D".action = spawn "walker";
+        "Mod+S".action = spawn "walker";
 
         # volume keymaps for pipewire 
         "XF86AudioRaiseVolume" = {
@@ -175,11 +185,11 @@
         "Mod+V".action = toggle-window-floating;
 
         # screenshotting
-        "Print" = screenshot;
-        "Ctrl+Print" = screenshot-screen;
-        "Alt+Print" = screenshot-window;
-      }
-    }
+        "Print".action = screenshot;
+        #"Ctrl+Print" = screenshot-screen;
+        "Alt+Print".action = screenshot-window;
+      };
+    };
   };
 
 	programs.waybar = {
