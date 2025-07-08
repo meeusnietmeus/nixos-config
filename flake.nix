@@ -12,9 +12,11 @@
     niri.url = "github:sodiboo/niri-flake";
 
     waybar.url = "github:Alexays/Waybar/master";
+
+    yazi.url = "github:sxyazi/yazi";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, niri, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, yazi, ... }: {
     nixosConfigurations.legion = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -27,7 +29,8 @@
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
         ({ pkgs, ... }: {
-					nixpkgs.overlays = [            
+					nixpkgs.overlays = [
+						yazi.overlays.default            
 						(self: super: { waybar_git = inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.waybar; })
 					];
         })

@@ -14,6 +14,8 @@
     walker
     btop
 
+    nautilus # needed by niri
+
     # Apps
     vscode
     discord
@@ -26,6 +28,17 @@
   programs.foot = {
     enable = true;
   };
+
+	programs.bash = {
+		enable = true;
+	  bashrcExtra = ''
+    if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+    then
+      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+      exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+    fi
+  '';
+	};
 
   programs.fish = {
     enable = true;
@@ -204,6 +217,12 @@
 		    modules-left = [ "clock" ];
 		  };
 		};
+	};
+
+	programs.yazi = {
+		enable = true;
+		enableFishIntegration = true;
+		enableBashIntegration = true;
 	};
 
   programs.home-manager.enable = true;
