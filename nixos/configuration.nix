@@ -56,6 +56,7 @@
   services.printing.enable = true;
 
   # Enable sound.
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -65,11 +66,10 @@
     enable = true;
     vt = 1;
     settings.default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd niri --user-menu";
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --user-menu --cmd 'niri --session'";
     };
   };
 
-  programs.niri.enable = true;
   programs.fish.enable = true; # To enable vendor fish completions provided by Nixpkgs
 
   users.users.humongoushard = {
@@ -93,7 +93,6 @@
     lshw
     wl-clipboard
     xwayland-satellite
-    libsForQt5.polkit-kde-agent
     openssh
   ];
 
@@ -102,7 +101,6 @@
   ];
 
   security.polkit.enable = true;
-  services.gnome.gnome-keyring.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
