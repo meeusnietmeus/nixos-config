@@ -10,9 +10,13 @@
   home.username = "humongoushard";
   home.homeDirectory = "/home/humongoushard";
 
+	home.pointerCursor = import ./cursor { inherit pkgs; };
+
   home.packages = with pkgs; [
     walker
+
     btop
+		unzip
 
     nautilus # needed by niri
 
@@ -73,6 +77,11 @@
           accel-speed = 0.15;
         };
       };
+
+			cursor = {
+		    theme = "Bibata-Modern-Classic";
+    		size = 32;
+			};
 
       gestures.hot-corners.enable = false;
 
