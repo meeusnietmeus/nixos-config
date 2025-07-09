@@ -20,6 +20,8 @@
 
     nautilus # needed by niri
 
+		jetbrains.rider
+
     # Apps
     vscode
     discord
@@ -50,6 +52,10 @@
       set fish_greeting # Disable greeting
     '';
   };
+
+	programs.direnv = {
+		enable = true;
+	};
 
   programs.git = {
     enable = true;
