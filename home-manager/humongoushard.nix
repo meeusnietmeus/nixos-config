@@ -19,8 +19,7 @@
 		unzip
 
     nautilus # needed by niri
-
-		jetbrains.rider
+		playerctl
 
     # Apps
     vscode
@@ -29,6 +28,8 @@
     obsidian
     firefox
     blender
+		jetbrains.rider
+		krita
   ];
 
   programs.foot = {
@@ -37,7 +38,7 @@
 
 	programs.bash = {
 		enable = true;
-	  bashrcExtra = ''
+	  initExtra = ''
     if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
     then
       shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
@@ -202,9 +203,9 @@
         };
         "Mod+WheelScrollLeft".action = focus-column-left;
         "Mod+WheelScrollRight".action = focus-column-right;
-
-        # workspaces
-        "Mod+1".action = focus-workspace 1;
+				
+				# workspaces 
+				"Mod+1".action = focus-workspace 1;
         "Mod+2".action = focus-workspace 2;
         "Mod+3".action = focus-workspace 3;
 
@@ -229,7 +230,18 @@
 		    layer = "top";
 		    position = "top";
 		    height = 30;
-		    modules-left = [ "clock" ];
+		    modules-left = [ 
+          "clock" 
+          "battery"
+					"cpu"
+					"memory"
+					"network"
+					#"bluetooth"
+					"pulseaudio"
+		    ];
+				modules-right = [
+					"mpris"
+				];
 		  };
 		};
 	};
@@ -239,8 +251,6 @@
 		enableFishIntegration = true;
 		enableBashIntegration = true;
 	};
-
-  programs.home-manager.enable = true;
 
   services.mako = {
     enable = true;
