@@ -44,5 +44,6 @@
     blender
 		jetbrains.rider
 		krita
+		godot-mono
   ];
 }
