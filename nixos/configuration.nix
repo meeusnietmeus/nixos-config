@@ -63,6 +63,9 @@
     videoDrivers = [ "nvidia" ];
   };
 
+	# drawing tablet drivers (opentabletdriver.net)
+	hardware.opentabletdriver.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
