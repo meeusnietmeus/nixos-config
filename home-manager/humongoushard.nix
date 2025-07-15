@@ -40,10 +40,16 @@
     discord
     spotify
     obsidian
-    firefox
-    blender
+
+		# game dev
+		blender
 		jetbrains.rider
-		krita
+		mypaint
 		godot-mono
+
+		# browsers
+		google-chrome
+		brave
+		firefox
   ];
 }

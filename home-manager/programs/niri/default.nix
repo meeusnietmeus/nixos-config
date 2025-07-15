@@ -68,21 +68,21 @@
             
             window-rules = [
                 {
-                # Open the Firefox picture-in-picture player as floating by default.
-                matches = [
-                    { app-id = "firefox$"; }
-                    { title = "^Picture-in-Picture$"; }
-                ];
-                open-floating = true;
+												# Open the Firefox picture-in-picture player as floating by default.
+												matches = [
+														{ app-id = "firefox$"; }
+														{ title = "^Picture-in-Picture$"; }
+												];
+												open-floating = true;
                 }
                 {
-                geometry-corner-radius = {
-                    bottom-right = 4.0;
-                    bottom-left = 4.0;
-                    top-left = 4.0;
-                    top-right = 4.0;
-                };
-                clip-to-geometry = true;
+												geometry-corner-radius = {
+														bottom-right = 4.0;
+														bottom-left = 4.0;
+														top-left = 4.0;
+														top-right = 4.0;
+												};
+												clip-to-geometry = true;
                 }
             ];
 
