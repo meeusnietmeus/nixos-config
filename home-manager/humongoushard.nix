@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.niri.homeModules.niri
+		inputs.nixvim.homeModules.nixvim
 
     # program configs
     ./programs/bash
@@ -13,6 +14,7 @@
     ./programs/niri
     ./programs/waybar
     ./programs/yazi
+    ./programs/nixvim
 
     # services configs
     ./services/mako
