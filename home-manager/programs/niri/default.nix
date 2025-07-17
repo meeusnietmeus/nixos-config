@@ -36,19 +36,21 @@
                 default-column-width.proportion = 0.5;
 
                 preset-column-widths = [
-                { proportion = 0.33333; }
-                { proportion = 0.5; }
-                { proportion = 0.66667; }
+                  { proportion = 0.33333; }
+                  { proportion = 0.5; }
+                  { proportion = 0.66667; }
                 ];
 
-                focus-ring = {
-                width = 3;
-                    active = {
-                    color = "#7fc8ff";
-                };
-                    inactive = {
-                    color = "#505050";
-                };
+                shadow = {
+                  enable = true;
+                  softness = 30.0;
+                  spread = 5.0;
+                  offset = {
+                    x=0;
+                    y=5;
+                  };
+                  draw-behind-window = true;
+                  color = "#00000070";
                 };
             };
 
@@ -68,13 +70,13 @@
             
             window-rules = [
                 {
-												geometry-corner-radius = {
-														bottom-right = 4.0;
-														bottom-left = 4.0;
-														top-left = 4.0;
-														top-right = 4.0;
-												};
-												clip-to-geometry = true;
+		  geometry-corner-radius = {
+                    bottom-right = 4.0;
+                    bottom-left = 4.0;
+                    top-left = 4.0;
+                    top-right = 4.0;
+                  };
+                  clip-to-geometry = true;
                 }
 								{
 									# godot 3rd open-window lag fix: open everthing except main window as floating
