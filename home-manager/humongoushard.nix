@@ -3,7 +3,7 @@
 {
   imports = [
     inputs.niri.homeModules.niri
-		inputs.nixvim.homeModules.nixvim
+    inputs.nixvim.homeModules.nixvim
 
     # program configs
     ./programs/bash
@@ -24,18 +24,21 @@
   home.username = "humongoushard";
   home.homeDirectory = "/home/humongoushard";
 
-	home.pointerCursor = import ./cursor { inherit pkgs; };
+  home.pointerCursor = import ./cursor { inherit pkgs; };
 
   home.packages = with pkgs; [
     walker
 
     # CLI tools
     btop
-		unzip
+    unzip
 
     # required stuff
     nautilus
-		playerctl
+    playerctl
+
+    #yuhh
+    gcc
 
     # Apps
     vscode
@@ -43,15 +46,15 @@
     spotify
     obsidian
 
-		# game dev
-		blender
-		jetbrains.rider
-		mypaint
-		godot-mono
+    # game dev
+    blender
+    jetbrains.rider
+    mypaint
+    godot-mono
 
-		# browsers
-		google-chrome
-		brave
-		firefox
+    # browsers
+    google-chrome
+    brave
+    firefox
   ];
 }
