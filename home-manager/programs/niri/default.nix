@@ -41,6 +41,10 @@
                   { proportion = 0.66667; }
                 ];
 
+                focus-ring = {
+                  enable = false;
+                };
+
                 shadow = {
                   enable = true;
                   softness = 30.0;
