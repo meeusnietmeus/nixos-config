@@ -64,6 +64,7 @@
                 { command = [ "waybar" ]; }
                 { command = [ "walker" "--gapplication-service" ]; }
                 { command = [ "xwayland-satellite" ]; }
+                { command = [ "swww-daemon" ]; }
             ];
 
             environment = {

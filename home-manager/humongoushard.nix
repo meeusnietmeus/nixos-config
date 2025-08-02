@@ -19,6 +19,7 @@
 
     # services configs
     ./services/mako
+    ./services/swww
   ];
 
   home.stateVersion = "25.05"; # dont touch, original install version
