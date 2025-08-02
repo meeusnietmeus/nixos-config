@@ -15,6 +15,7 @@
     ./programs/waybar
     ./programs/yazi
     ./programs/nixvim
+    ./programs/swaylock
 
     # services configs
     ./services/mako

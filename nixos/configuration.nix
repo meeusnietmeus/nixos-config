@@ -90,8 +90,9 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
-  
+
   security.sudo.enable = true;
+  security.pam.services.swaylock = {};
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1"; #prefer Wayland
