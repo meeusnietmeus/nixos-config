@@ -5,18 +5,47 @@
     enable = true;
 
     defaultEditor = true;
-    viAlias = true;
     vimAlias = true;
 
     colorschemes.oxocarbon.enable = true;
 
     plugins = {
+      lsp-format.enable = true;
+      lsp = {
+        enable = true;
+        inlayHints = true;
+        servers = {
+          rust_analyzer = {
+            enable = true;
+            installRustc = false; # should always be handled via flake
+            installCargo = false;
+          };
+        };
+      };
+
       telescope.enable = true;
       yazi.enable = true;
 
       nix.enable = true;
 
-      #blink-cmp.enable = true;
+      blink-cmp = {
+        enable = true;
+        setupLspCapabilities = true;
+
+        settings = {
+          keymap = {
+            preset = "super-tab";
+          };
+          sources = {
+            default = [
+              "buffer"
+              "lsp"
+              "path"
+              "snippets"
+            ];
+          };
+        };
+      };
 
       web-devicons.enable = true;
 
@@ -76,6 +105,16 @@
       }
 
       vim.opt.undofile = true
+
+      config = function(_, opts)
+        local lspconfig = require('lspconfig')
+        for server, config in pairs(opts.servers) do
+          -- passing config.capabilities to blink.cmp merges with the capabilities in your
+          -- `opts[server].capabilities, if you've defined it
+          config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+          lspconfig[server].setup(config)
+        end
+      end;
     '';
   };
 }
