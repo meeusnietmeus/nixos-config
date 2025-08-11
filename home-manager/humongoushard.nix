@@ -43,7 +43,6 @@
     gcc
 
     # Apps
-    vscode
     discord
     spotify
     obsidian
@@ -56,7 +55,6 @@
 
     # browsers
     google-chrome
-    brave
     firefox
   ];
 }
