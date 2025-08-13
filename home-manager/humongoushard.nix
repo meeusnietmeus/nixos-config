@@ -46,6 +46,7 @@
     discord
     spotify
     obsidian
+    heroic
 
     # game dev
     blender

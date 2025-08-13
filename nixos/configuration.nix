@@ -86,9 +86,21 @@
 
   programs.fish.enable = true; # To enable vendor fish completions provided by Nixpkgs
 
+  # gaming
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+  programs.gamemode = {
+    enable = true;
+    settings.general.inhibit_screensaver = 0;
+  };
+
+
   users.users.humongoushard = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "gamemode" ]; # Enable ‘sudo’ for the user.
   };
 
   security.sudo.enable = true;
@@ -109,6 +121,7 @@
     wl-clipboard
     xwayland-satellite
     openssh
+    protonup-qt
   ];
 
   fonts.packages = with pkgs; [
