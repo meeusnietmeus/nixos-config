@@ -42,6 +42,9 @@
     #yuhh
     gcc
 
+    # Tuis
+    bluetui
+
     # Apps
     discord
     spotify
