@@ -51,7 +51,7 @@
     # game dev
     blender
     jetbrains.rider
-    mypaint
+    krita
     godot-mono
 
     # browsers
