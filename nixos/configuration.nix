@@ -78,9 +78,8 @@
 
   services.greetd = {
     enable = true;
-    vt = 1;
     settings.default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --user-menu --cmd 'niri --session'";
+      command = "${pkgs.tuigreet}/bin/tuigreet --user-menu --cmd 'niri --session'";
     };
   };
 

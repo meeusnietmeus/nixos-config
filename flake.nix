@@ -2,10 +2,10 @@
   description = "NixOS config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    home-manager = { 
-      url = "github:nix-community/home-manager/release-25.05";
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -15,9 +15,9 @@
 
     yazi.url = "github:sxyazi/yazi";
 
-		nixvim = {
-        url = "github:nix-community/nixvim/nixos-25.05";
-        inputs.nixpkgs.follows = "nixpkgs";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -34,10 +34,10 @@
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
         ({ pkgs, ... }: {
-					nixpkgs.overlays = [
-						yazi.overlays.default            
-						(self: super: { waybar_git = inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.waybar; })
-					];
+          nixpkgs.overlays = [
+            yazi.overlays.default
+            (self: super: { waybar_git = inputs.waybar.packages.${pkgs.stdenv.hostPlatform.system}.waybar; })
+          ];
         })
       ];
     };
